@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
 
-const Box = styled.div`
+const Box = styled.span`
   width: 200px;
   height: 30px;
   margin-left: 5em;

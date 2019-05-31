@@ -20,7 +20,8 @@ const StoryTree = [
     image:
       "https://uploads.codesandbox.io/uploads/user/b14652ff-9bd9-4eb7-acdf-2c231ca51a7a/jKq7-Slumber.png",
     music: "",
-    choice1: "Pack up what you have and keep moving"
+    choice1: "Pack up what you have and keep moving",
+    minus: "rook"
   },
   {
     title: "The Creek",
@@ -61,7 +62,8 @@ const StoryTree = [
       "https://uploads.codesandbox.io/uploads/user/b14652ff-9bd9-4eb7-acdf-2c231ca51a7a/jaQL-Deep%20Sleep.png",
     music:
       "https://uploads.codesandbox.io/uploads/user/b14652ff-9bd9-4eb7-acdf-2c231ca51a7a/b-wS-dredile__atmosphere-dark-large-echo.ogg",
-    choice1: "Take some treasure and swim back up"
+    choice1: "Take some treasure and swim back up",
+    add: "treasure"
   },
   {
     title: "To the city beyond",
@@ -108,7 +110,25 @@ const StoryTree = [
       "https://uploads.codesandbox.io/uploads/user/b14652ff-9bd9-4eb7-acdf-2c231ca51a7a/gmya-Potion.png",
     music: "",
     choice1: "Drink potion",
-    choice2: "Check inventory"
+    choice2: "Consider your options"
+  },
+  {
+    title: "Punishment",
+    text:
+      "Thundar that trickster!.  You have been sentenced to death for drinking the king's most prized potion.",
+    image:
+      "https://uploads.codesandbox.io/uploads/user/b14652ff-9bd9-4eb7-acdf-2c231ca51a7a/TM5t-Death.png",
+    music:
+      "https://uploads.codesandbox.io/uploads/user/b14652ff-9bd9-4eb7-acdf-2c231ca51a7a/uZL2-dredile__orchestral-hit-the-villain-appears.mp3"
+  },
+  {
+    title: "And the story begins again...",
+    text:
+      "As you consider what to do, a flash of light blinds you. You rub your eyes and blink hard, realizing the impossible.  You are back where you began.",
+    image:
+      "https://uploads.codesandbox.io/uploads/user/b14652ff-9bd9-4eb7-acdf-2c231ca51a7a/uMfn-Wanderer.png",
+    music:
+      "https://uploads.codesandbox.io/uploads/user/b14652ff-9bd9-4eb7-acdf-2c231ca51a7a/3aE0-dredile__ambience-autumn-solitude-a-cutflower-sound.mp3"
   }
 ];
 

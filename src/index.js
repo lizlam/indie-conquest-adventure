@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import Viewer from "./Viewer";
 import Inventory from "./Inventory";
 import StoryTree from "./StoryTree";
+import ErrorBoundary from "./ErrorBoundary";
+
 import styled from "styled-components";
 
 import "./styles.css";
@@ -28,11 +30,41 @@ const Button = styled.button`
 
 const pick = "⛏";
 const rook = "♜";
+const treasure = "$";
 const mushroom = "🍄";
 
 function App() {
   const [index, setIndex] = useState(0);
   const [inventory, setInventory] = useState([pick, rook]);
+  const [audio, setAudio] = useState(false);
+
+  useEffect(() => {
+    if (audio) {
+      document.querySelector(".audio").pause();
+      document.querySelector(".audio").load();
+      document.querySelector(".audio").play();
+    }
+  });
+
+  const clickAddHandler = () => {
+    if (StoryTree[index].add) {
+      let item = eval(StoryTree[index].add);
+      setInventory([...inventory, item]);
+    }
+    console.log(StoryTree[index].minus);
+    if (StoryTree[index].minus) {
+      let removedItem = eval(StoryTree[index].minus);
+      console.log(removedItem);
+      let i = inventory.indexOf(removedItem);
+      console.log(i);
+      setInventory(
+        ...inventory.splice(0, 1),
+        ...inventory.splice(i, inventory.length)
+      );
+    }
+    setIndex(index + 1);
+  };
+
   return (
     <div>
       <Frame>
@@ -40,12 +72,9 @@ function App() {
           title={StoryTree[index].title}
           text={StoryTree[index].text}
           image={StoryTree[index].image}
-          music={StoryTree[index].music}
         />
         {StoryTree[index].choice1 && (
-          <Button
-            onClick={() => setIndex(index + 1) && setInventory([mushroom])}
-          >
+          <Button onClick={() => clickAddHandler()}>
             {StoryTree[index].choice1}
           </Button>
         )}
@@ -58,11 +87,24 @@ function App() {
           <Button onClick={() => setIndex(0)}>Start Over</Button>
         )}
       </Frame>
-      {StoryTree[index].add}
       <Inventory>{inventory}</Inventory>
+      <Button onClick={() => setAudio(!audio)}>
+        {" "}
+        Sound {audio ? "off" : "on"}
+      </Button>
+      {audio && (
+        <audio autoPlay className="audio">
+          <source src={StoryTree[index].music} />
+        </audio>
+      )}
     </div>
   );
 }
 
 const rootElement = document.getElementById("root");
-ReactDOM.render(<App />, rootElement);
+ReactDOM.render(
+  <ErrorBoundary>
+    <App />{" "}
+  </ErrorBoundary>,
+  rootElement
+);

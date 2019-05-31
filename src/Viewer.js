@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import {
   Container,
@@ -35,15 +35,8 @@ const QuestionText = styled.div`
   margin-left: 15px;
 `;
 const Viewer = props => {
-  console.log(props.children);
   useEffect(() => {
     document.title = `${props.title}`;
-  });
-
-  useEffect(() => {
-    document.querySelector(".audio").pause();
-    document.querySelector(".audio").load();
-    document.querySelector(".audio").play();
   });
 
   useEffect(() => {
@@ -55,7 +48,7 @@ const Viewer = props => {
       margin-left: 15px;
       animation: ${keyFrameTitleText} 2s ease-in-out 0s;
     `;
-  });
+  }, [props.title]);
 
   return (
     <Container fluid>
@@ -76,9 +69,6 @@ const Viewer = props => {
           <ResponseText />
         </CardBody>
       </Card>
-      <audio autoPlay className="audio">
-        <source src={props.music} />
-      </audio>
     </Container>
   );
 };
