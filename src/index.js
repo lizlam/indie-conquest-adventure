@@ -84,7 +84,14 @@ function App() {
           </Button>
         )}
         {!StoryTree[index].choice1 && (
-          <Button onClick={() => setIndex(0)}>Start Over</Button>
+          <Button
+            onClick={() => {
+              setIndex(0);
+              setInventory([pick, rook]);
+            }}
+          >
+            Start Over
+          </Button>
         )}
       </Frame>
       <Inventory>{inventory}</Inventory>
