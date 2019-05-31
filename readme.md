@@ -10,6 +10,8 @@ I started this project as a personal exercise with the following goals:
 
 What came out of it was this little "choose your adventure" app.
 
+![Screenshot](indie-conquest-adventure-codesandbox-screenshot.PNG)
+
 Art by Jason Glover  
 https://indieconquest.com/
 
@@ -18,8 +20,8 @@ Music Credits:
 Ambience - Autumn Solitude (A Cutflower Sound) by Dredile  
 https://freesound.org/people/Dredile/sounds/441832/
 
-Atmosphere - Dark Large Echo by Dredile
+Atmosphere - Dark Large Echo by Dredile  
 https://freesound.org/people/Dredile/sounds/331647/
 
-Orchestral Hit - The Villain Appears by Dredile
+Orchestral Hit - The Villain Appears by Dredile  
 https://freesound.org/people/Dredile/sounds/164273/
